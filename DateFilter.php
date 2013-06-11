@@ -15,7 +15,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace lracicot\FormFilter\Widget;
+namespace lracicot\FormFilter;
 
 require_once('FilterInterface.php');
 
@@ -60,6 +60,16 @@ class DateFilter implements Filter
     public function display()
     {
         return $this->label . ' ' . $this->fieldAdapter->getDateField($this->name.'Filter', $this->value, 'class="filter"');
+    }
+
+    public function displayLabel()
+    {
+        return $this->label;
+    }
+
+    public function displayField()
+    {
+        return $this->fieldAdapter->getDateField($this->name.'Filter', $this->value, 'class="filter"');
     }
     
     public function applyFilter($model)

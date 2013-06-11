@@ -15,7 +15,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace lracicot\FormFilter\Widget;
+namespace lracicot\FormFilter;
 
 require_once('FilterInterface.php');
 
@@ -69,7 +69,17 @@ class CheckBoxFilter implements Filter
     
     public function display()
     {
-        return $this->label . ' ' . $this->fieldAdapter->getCheckBox($this->name.'Filter[]', $this->dataList, $this->checked, 'class="filter"');
+        return $this->displayLabel() . ' ' . $this->displayField();
+    }
+
+    public function displayLabel()
+    {
+        return $this->label;
+    }
+
+    public function displayField()
+    {
+        return $this->fieldAdapter->getCheckBox($this->name.'Filter[]', $this->dataList, $this->checked, 'class="filter"');
     }
     
     public function applyFilter($model)

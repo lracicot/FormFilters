@@ -15,7 +15,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace lracicot\FormFilter\Widget;
+namespace lracicot\FormFilter;
 
 require_once('FilterInterface.php');
 
@@ -50,29 +50,52 @@ class DropdownFilter implements Filter
     private $dataList = array();
     
     /**
+     * The possibility to select multiple values
+     *
+     * @var int
+     */
+    private $multiple = false;
+    
+    /**
      * The current value of the filter
      *
      * @var int
      */
     private $selected = 0;
     
-    public function __construct(FieldAdapterInterface $fieldAdapter, $name, $label, $field, $list)
+    public function __construct(FieldAdapterInterface $fieldAdapter, $name, $label, $field, $list, $multiple = false)
     {
         $this->fieldAdapter = $fieldAdapter;
         $this->name = $name;
         $this->label = $label;
         $this->field = $field;
         $this->dataList = $list;
+        $this->multiple = $multiple;
     }
     
     public function display()
     {
-        return $this->label . ' ' . $this->fieldAdapter->getDropdown($this->name.'Filter', $this->dataList, $this->selected, 'class="filter"');
+        return $this->displayLabel() . ' ' . $this->displayField();
+    }
+
+    public function displayLabel()
+    {
+        return $this->label;
+    }
+
+    public function displayField()
+    {
+        return $this->fieldAdapter->getDropdown(
+            $this->name.'Filter',
+            $this->dataList,
+            $this->selected,
+            'class="filter"' . ((!$this->multiple) ?: ' multiple="multiple"')
+            );
     }
     
     public function applyFilter($model)
     {
-        $model->where($this->field, $this->selected);
+        $model->where_in($this->field, $this->selected);
     }
     
     public function setValue($value)

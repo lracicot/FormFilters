@@ -15,7 +15,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace lracicot\FormFilter\Widget;
+namespace lracicot\FormFilter;
 
 require_once('FilterInterface.php');
 
@@ -68,6 +68,16 @@ class RadioFilter implements Filter
     public function display()
     {
         return $this->label . ' ' . $this->fieldAdapter->getRadio($name.'Filter', $this->dataList, $this->selected);
+    }
+
+    public function displayLabel()
+    {
+        return $this->label;
+    }
+
+    public function displayField()
+    {
+        return $this->fieldAdapter->getRadio($name.'Filter', $this->dataList, $this->selected);
     }
     
     public function applyFilter($model)
