@@ -95,7 +95,9 @@ class DropdownFilter implements Filter
     
     public function applyFilter($model)
     {
-        $model->where_in($this->field, $this->selected);
+        if ($this->field) {
+            $model->where_in($this->field, $this->selected);
+        }
     }
     
     public function setValue($value)
