@@ -17,11 +17,11 @@
  */
 
 // Interfaces
-require_once('Filters/FilterInterface.php');
-require_once('Filters/FieldAdapters/FieldAdapterInterface.php');
+require_once('FilterInterface.php');
+require_once('FieldAdapters/FieldAdapterInterface.php');
 
 // Classes
-require_once('Filters/CheckBoxFilter.php');
-require_once('Filters/DateFilter.php');
-require_once('Filters/DropdownFilter.php');
-require_once('Filters/RadioFilter.php');
+require_once('CheckBoxFilter.php');
+require_once('DateFilter.php');
+require_once('DropdownFilter.php');
+require_once('RadioFilter.php');
