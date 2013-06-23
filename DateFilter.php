@@ -16,6 +16,7 @@
  */
 
 namespace lracicot\FormFilter;
+use lracicot\FormFilter\FieldAdapters\FieldAdapterInterface;
 
 require_once('FilterInterface.php');
 
