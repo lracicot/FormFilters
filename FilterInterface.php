@@ -15,7 +15,7 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace lracicot\FormFilter\Widget;
+namespace lracicot\FormFilter;
 
 interface Filter
 {
