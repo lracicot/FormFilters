@@ -1,0 +1,23 @@
+ {
+    "name": "lracicot/FormFilters",
+    "description": "Easy class for filter widgets ",
+    "keywords": ["filter", "form"],
+    "homepage": "http://github.com/lracicot/FormFilters",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Louis Racicot",
+            "email": "info@louisracicot.com",
+            "homepage": "http://louisracicot.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        }
+    }
+}
